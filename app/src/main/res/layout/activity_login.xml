@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        <!--    back icon -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_arrow_back_24"
+                    android:gravity="left"/>
+            </LinearLayout>
+
+
+
+        <!--        Logo -->
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/logo"/>
+
+        <!--        text "login to your account" -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fe_color"
+                android:textStyle="bold|italic"
+                android:textSize="30sp"
+                android:text="Login to Your Account"/>
+
+        <!--        Enter Email-->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:drawablePadding="6dp"
+                android:gravity="left|center"
+                android:height="60dp"
+                android:padding="10dp"
+                android:background="@drawable/round"
+                android:drawableStart="@drawable/baseline_email_24"
+                android:backgroundTint="@color/gray"
+                android:hint=" Email"
+                android:textColor="@color/fe_color"
+                android:textSize="15sp"/>
+
+        <!--        Enter Password -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:drawablePadding="6dp"
+                android:gravity="left|center"
+                android:height="60dp"
+                android:padding="10dp"
+                android:background="@drawable/round"
+                android:drawableStart="@drawable/baseline_password_24"
+                android:backgroundTint="@color/gray"
+                android:hint=" Password"
+                android:textColor="@color/fe_color"
+                android:textSize="15sp"/>
+
+        <!--        Line -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="5"
+                    android:background="@color/fe_color"/>
+            </LinearLayout>
+
+        <!--        Button sign in -->
+
+        <!--        text "forgot the password" -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/fe_color"
+                android:text="Login"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        <!--        Forgot the password -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Forgot the password"
+                android:textStyle="bold|italic"
+                android:textColor="@color/fe_color"
+                android:textSize="15sp"/>
+
+        <!--        line -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center">
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="5"
+                    android:background="@color/fe_color"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="or"
+                    android:textColor="@color/fe_color"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="5"
+                    android:background="@color/fe_color" />
+            </LinearLayout>
+
+        <!--  Google gmail button -->
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/google"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/fe_color"
+                android:padding="10dp"
+                />
+
+        <!--   text "Don't have an account ?" -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account?"
+                    android:textColor="@color/fe_color"
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" Sign up"
+                    android:textColor="@color/fe_color"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
