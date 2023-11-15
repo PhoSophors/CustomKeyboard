@@ -2,62 +2,65 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@drawable/welcome_bg"
-    android:id="@+id/btnStart">
+    android:background="@drawable/welcome_bg">
 
 <!--    content-->
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_gravity="center"
         android:layout_margin="16dp"
+        android:gravity="center_vertical|center"
         tools:ignore="UselessParent">
         <ImageView
-            android:layout_width="470dp"
-            android:layout_height="480dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10sp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/keyboards_custom" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:src="@drawable/logo" />
 
-        <!--    text view -->
-        <LinearLayout
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="25sp"
+           android:text="Welcome to"
+           android:textStyle="bold"
+           android:textSize="35dp"
+           android:layout_alignParentStart="true"
+           android:textColor="@color/white"/>
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="15sp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_gravity="left"
-                android:gravity="left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Welcome to"
-                android:textStyle="bold|italic"
-                android:textColor="@color/fe_color"
-                android:textSize="35sp"/>
-            <TextView
-                android:layout_gravity="left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold|italic"
-                android:text="KeyLab"
-                android:textColor="@color/fe_color"
-                android:textSize="70sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold|italic"
-                android:textColor="@color/fe_color"
-                android:text="The best customize your mechanical keyboard!"/>
-        </LinearLayout>
-        <!--end text view -->
+            android:text="KeyLap"
+            android:textSize="70sp"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15sp"
+            android:layout_alignParentStart="true"
+            android:text="The world of mechanical keyboard customization is an ongoing journey of exploration and self-expression. As you delve deeper into the realm of customization, you'll discover endless possibilities to refine your keyboard and transform it into a reflection of your unique style and preferences."
+            android:textStyle="normal"
+            android:textColor="@color/gray_700"
+            android:textSize="15sp"
+            android:textAlignment="center"/>
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="25dp"
+            android:text="Get Start"
+            android:textStyle="italic"
+            android:textSize="15sp"
+            android:textColor="@color/mainColor"
+            android:background="@drawable/round"
+            android:backgroundTint="@color/white"/>
+
+
 
     </LinearLayout>
 <!--    end content-->
