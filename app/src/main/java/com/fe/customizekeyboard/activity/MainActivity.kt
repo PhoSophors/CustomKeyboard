@@ -1,5 +1,6 @@
 package com.fe.customizekeyboard.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -18,25 +19,39 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+
+
          // show fragment
 
         showFragment(HomeFragment())
+
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
 
                 R.id.mnuHome -> showFragment(HomeFragment())
-                R.id.mnuFavorite -> showFragment(FavoriteFragment())
                 R.id.mnuProduct-> showFragment(ProductFragment())
                 R.id.mnuProfile ->showFragment(ProfileFragment())
+                R.id.mnuFavorite ->{
+                    showActivity()
+                }
 
                 else->{
 
                 }
-
             }
 
             true
         }
+    }
+
+    // Draft register activity
+    //Check existing account can add favorite product
+
+    private fun showActivity(){
+        val intent = Intent(this,RegisterActivity::class.java)
+
+        // Start the SecondActivity using the intent
+        startActivity(intent)
     }
 
     // Fun show fragment
@@ -50,10 +65,8 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.replace(R.id.lytFragment ,fragment)
         fragmentTransaction.commit()
 
-
-
-
     }
+
 
 
 

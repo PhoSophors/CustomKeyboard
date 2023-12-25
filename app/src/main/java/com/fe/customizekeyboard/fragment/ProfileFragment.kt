@@ -20,4 +20,6 @@ class ProfileFragment : Fragment (){
         binding = FragmentProfileBinding.inflate(inflater ,container, false)
         return binding.root;
     }
+
+
 }

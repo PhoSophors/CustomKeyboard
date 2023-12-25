@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.fe.customizekeyboard.databinding.ActivityWelcomeBinding
 
 
-
 class WelcomeActivity:AppCompatActivity() {
 
     private lateinit var binding: ActivityWelcomeBinding ;
@@ -16,8 +15,6 @@ class WelcomeActivity:AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
 
         binding.btnStart.setOnClickListener {
             // Create an Intent to start the MainActivity
