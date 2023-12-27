@@ -12,8 +12,8 @@ class RegisterActivity:AppCompatActivity () {
         binding = ActivityRegisterBinding.inflate(layoutInflater) ;
         setContentView(binding.root);
 
-
     }
+    
 
 
 }
