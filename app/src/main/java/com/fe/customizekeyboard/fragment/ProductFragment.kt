@@ -19,5 +19,7 @@ class ProductFragment : Fragment() {
         binding = FragmentProductBinding.inflate(inflater , container , false)
         return binding.root ;
 
+
+
     }
 }
