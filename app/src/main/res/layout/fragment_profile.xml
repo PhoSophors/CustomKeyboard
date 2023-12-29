@@ -3,7 +3,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white"
+    android:backgroundTint="@color/gray">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -14,7 +16,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <!--            back icon -->
+            <!--  back icon -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,12 +34,13 @@
                 android:layout_height="170sp"
                 android:layout_marginTop="25dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/baseline_username_24"
+                android:src="@drawable/baseline_account_circle_24"
                 android:background="@drawable/profile_round"
+                android:backgroundTint="@color/white"
                 android:padding="10dp"
-                />
+                android:contentDescription="TODO" />
 
-            <!--            text view (user info) -->
+            <!-- text view (user info) -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -47,7 +50,7 @@
                 android:height="60dp"
                 android:padding="10dp"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint="Pho Sophors"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp" />
@@ -61,7 +64,7 @@
                 android:height="60dp"
                 android:padding="10dp"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint="Male"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp" />
@@ -76,7 +79,7 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableEnd="@drawable/baseline_calendar_month_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint="11/Jan/2002"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp" />
@@ -91,7 +94,7 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableEnd="@drawable/baseline_email_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint="phosophors.097@gmail.com"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp" />
@@ -106,12 +109,12 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableEnd="@drawable/baseline_phone_enabled_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint="+855: 12 333 555"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp" />
 
-            <!--            edit profile button-->
+            <!--  edit profile button-->
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

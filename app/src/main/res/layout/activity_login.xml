@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white"
+    android:backgroundTint="@color/gray">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -26,13 +28,13 @@
                     android:gravity="left"/>
             </LinearLayout>
 
-        <!--        Logo -->
+        <!-- Logo -->
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:src="@drawable/logo"/>
 
-        <!--        text "login to your account" -->
+        <!-- text "login to your account" -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,12 +55,12 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableStart="@drawable/baseline_email_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint=" Email"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp"/>
 
-        <!--        Enter Password -->
+        <!--  Enter Password -->
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -69,7 +71,7 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableStart="@drawable/baseline_password_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint=" Password"
                 android:textColor="@color/mainColor"
                 android:textColorHint="@color/mainColor"
@@ -149,9 +151,9 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/google"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:padding="10dp"
-                />
+                android:contentDescription="TODO" />
 
         <!--   text "Don't have an account ?" -->
             <LinearLayout

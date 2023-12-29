@@ -22,12 +22,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
-                    android:layout_height="60dp"
-                    android:layout_width="60dp"
-                    android:id="@+id/imageView1"
+                <ImageButton
+                    android:layout_width="60sp"
+                    android:layout_height="60sp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/profile_round"
                     android:src="@drawable/baseline_account_circle_24"
-                    android:innerRadius="0dp" />
+                    android:backgroundTint="@color/white"
+                    android:contentDescription="TODO" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -113,7 +116,7 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/image2" />
+                        android:src="@drawable/q1pro" />
                 </LinearLayout>
             </LinearLayout>
             <!--  End popular card image -->
@@ -412,81 +415,6 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:id="@+id/cardView"-->
-<!--            android:layout_width="180dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:cardCornerRadius="8dp"-->
-<!--            app:cardElevation="1dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
-
-<!--            <LinearLayout-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content">-->
-
-<!--                <ImageView-->
-<!--                    android:id="@+id/imgProduct"-->
-<!--                    android:layout_width="180dp"-->
-<!--                    android:layout_height="180dp"-->
-<!--                    android:contentDescription="Product Name"-->
-<!--                    android:scaleType="centerCrop"-->
-<!--                    android:src="@drawable/image3" />-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-
-<!--                    android:layout_height="wrap_content">-->
-<!--                    <TextView-->
-<!--                        android:id="@+id/txtPrice"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-
-<!--                        android:textColor="@color/black"-->
-<!--                        android:textSize="17sp"-->
-<!--                        tools:text="$90.00" />-->
-<!--                    <View-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="0dp"-->
-<!--                        android:layout_weight="1"/>-->
-
-<!--                    <ImageView-->
-
-<!--                        android:layout_width="20dp"-->
-<!--                        android:layout_height="20dp"-->
-<!--                        android:layout_gravity="end"-->
-
-<!--                        android:src="@drawable/ic_rate" />-->
-
-<!--                    <TextView-->
-
-<!--                        android:id="@+id/txtRates"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginEnd="8dp"-->
-<!--                        android:textColor="@color/black"-->
-<!--                        android:textSize="17sp"-->
-<!--                        tools:text="4.7" />-->
-<!--                </LinearLayout>-->
-<!--                <TextView-->
-<!--                    android:id="@+id/txtProductNames"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="17sp"-->
-<!--                    tools:text="Product Name" />-->
-<!--            </LinearLayout>-->
-<!--        </androidx.cardview.widget.CardView>-->
-
-
-
-
-
 
             </GridLayout>
         </LinearLayout>
