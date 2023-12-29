@@ -4,7 +4,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:backgroundTint="@color/gray"
+    android:background="@color/white">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -30,12 +32,17 @@
             </LinearLayout>
 
 
-        <!--  logo icon -->
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:contentDescription="Image profile"
-                android:src="@drawable/ic_profile"/>
+        <!--  profile icon -->
+            <ImageButton
+                android:layout_width="170sp"
+                android:layout_height="170sp"
+                android:layout_marginTop="25dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/baseline_account_circle_24"
+                android:background="@drawable/profile_round"
+                android:padding="10dp"
+                android:backgroundTint="@color/white"
+                android:contentDescription="TODO" />
 
         <!--  text "create account" -->
             <TextView
@@ -57,7 +64,7 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableStart="@drawable/baseline_username_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint=" Username"
                 android:textColor="@color/mainColor"
                 android:textColorHint="@color/mainColor"
@@ -75,7 +82,7 @@
                 android:background="@drawable/round"
                 android:drawableStart="@drawable/baseline_email_24"
                 android:textColorHint="@color/mainColor"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint=" Email"
                 android:textColor="@color/mainColor"
                 android:textSize="15sp"/>
@@ -91,8 +98,25 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableStart="@drawable/baseline_password_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint=" Password"
+                android:textColor="@color/mainColor"
+                android:textColorHint="@color/mainColor"
+                android:textSize="15sp"/>
+
+            <!-- confirm password -->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
+                android:drawablePadding="6dp"
+                android:gravity="left|center"
+                android:height="60dp"
+                android:padding="10dp"
+                android:background="@drawable/round"
+                android:drawableStart="@drawable/baseline_password_24"
+                android:backgroundTint="@color/white"
+                android:hint=" Confirm Password"
                 android:textColor="@color/mainColor"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp"/>
@@ -159,7 +183,7 @@
                 android:scaleType="fitCenter"
                 android:src="@drawable/google"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:padding="10dp"
                 android:contentDescription="Image "
                 tools:ignore="ExtraText" />

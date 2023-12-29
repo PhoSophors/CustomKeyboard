@@ -3,7 +3,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:backgroundTint="@color/gray"
+    android:background="@color/white">
 
     <!--   back icon and text (confirm pin ) -->
     <LinearLayout
@@ -72,7 +74,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:gravity="center"
                 android:text="6"
                 android:textColor="@color/mainColor"
@@ -86,7 +88,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:gravity="center"
                 android:text="8"
                 android:textColor="@color/mainColor"
@@ -100,7 +102,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:gravity="center"
                 android:text="1"
                 android:textColor="@color/mainColor"
@@ -114,7 +116,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:gravity="center"
                 android:text="4"
                 android:textColor="@color/mainColor"
