@@ -10,8 +10,9 @@ import com.fe.customizekeyboard.fragment.ProductFragment
 import com.fe.customizekeyboard.R
 import com.fe.customizekeyboard.databinding.ActivityMainBinding
 import com.fe.customizekeyboard.fragment.ProfileFragment
-
 class MainActivity : AppCompatActivity() {
+
+
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
