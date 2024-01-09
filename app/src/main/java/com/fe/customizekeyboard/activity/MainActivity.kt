@@ -44,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     // Draft register activity
     //Check existing account can add favorite product
 

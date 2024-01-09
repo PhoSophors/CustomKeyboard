@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,20 +16,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
+            android:background="#9EAAAE"
             android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:orientation="horizontal"
+
                 android:layout_margin="15dp"
                 android:layout_height="match_parent">
-
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_arrow_back_24"
                     />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Details"
+                    android:textColor="#F5B041"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <View
                     android:layout_width="wrap_content"
@@ -40,8 +50,6 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_card"
                     />
-
-
                 </LinearLayout>
 
             <HorizontalScrollView
@@ -60,7 +68,6 @@
                     android:layout_margin="10dp"
                     android:layout_height="wrap_content">
                     <androidx.cardview.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
@@ -78,10 +85,7 @@
                                 android:layout_width="350dp"
                                 android:layout_height="250dp"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/image2"/>
-
-
-
+                                android:src="@drawable/image2" />
 
                         </LinearLayout>
 
@@ -106,8 +110,6 @@
                                 android:layout_height="250dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/image2"/>
-
-
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -123,15 +125,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             >
-
                             <!-- Image View -->
                             <ImageView
-
                                 android:layout_width="350dp"
                                 android:layout_height="250dp"
                                 android:scaleType="fitXY"
                                 android:src="@drawable/image2"/>
-
 
                         </LinearLayout>
 
@@ -139,52 +138,74 @@
 
                 </LinearLayout>
 
-
-
-
-
-
-
-
             </HorizontalScrollView>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="431dp"
+                android:background="@drawable/blue_light_banner"
                 android:orientation="vertical"
-                android:layout_margin="10dp"
                 >
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_margin="15dp"
+                   android:orientation="vertical">
+
                 <TextView
+                    android:layout_marginTop="40dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
                     android:text="Product Name"
-                    />
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
 
-                <TextView
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
-                    android:textStyle="italic"
-                    android:text="Lorem Ipsum is simply dummy text of the printing and
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="$260"
+                        android:textColor="#F5B041"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_star" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Reviwers"
+                        android:textColor="#F5B041"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_marginTop="10dp"
+                       android:text="Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:text="$260"
-                    />
-
-
+                       android:textSize="20sp"
+                       android:textStyle="italic" />
+               </LinearLayout>
+             </LinearLayout>
             </LinearLayout>
-
-
-            </LinearLayout>
-
     </ScrollView>
-
-
 </LinearLayout>
