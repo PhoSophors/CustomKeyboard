@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
     android:backgroundTint="@color/gray"
-    android:background="@color/white">
+    android:background="@color/white"
+    tools:context=".activity.RegisterActivity">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -23,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="left">
                 <ImageView
-                    android:id="@+id/icBackRegister"
+
+                    android:id="@+id/backRegisterBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_arrow_back_24"
@@ -49,14 +52,14 @@
                 android:textSize="30sp"
                 android:text="Create Account"/>
 
-            <!--  Enter username  -->
+            <!--  Enter fullanme -->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fullNameTil"
+                android:id="@+id/fullnameTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fullNameEt"
+                    android:id="@+id/fullnameEt"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:drawablePadding="6dp"
@@ -64,12 +67,13 @@
                     android:height="60dp"
                     android:padding="10dp"
                     android:background="@drawable/round"
-                    android:drawableStart="@drawable/baseline_username_24"
-                    android:backgroundTint="@color/white"
-                    android:hint=" Full Name"
-                    android:textColor="@color/mainColor"
+                    android:drawableStart="@drawable/baseline_account_circle_24"
                     android:textColorHint="@color/mainColor"
-                    android:textSize="15sp"/>
+                    android:backgroundTint="@color/white"
+                    android:hint="Full name"
+                    android:textColor="@color/mainColor"
+                    android:textSize="15sp"
+                    android:imeOptions="actionDone"  />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--  Enter Email -->
@@ -90,8 +94,9 @@
                     android:drawableStart="@drawable/baseline_email_24"
                     android:textColorHint="@color/mainColor"
                     android:backgroundTint="@color/white"
-                    android:hint=" Email"
+                    android:hint="@string/email"
                     android:textColor="@color/mainColor"
+                    android:imeOptions="actionDone"
                     android:textSize="15sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,6 +105,7 @@
                 android:id="@+id/passwordTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/passwordEt"
@@ -112,9 +118,10 @@
                     android:background="@drawable/round"
                     android:drawableStart="@drawable/baseline_password_24"
                     android:backgroundTint="@color/white"
-                    android:hint=" Password"
+                    android:hint="@string/password"
                     android:textColor="@color/mainColor"
                     android:textColorHint="@color/mainColor"
+                    android:imeOptions="actionDone"
                     android:textSize="15sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,6 +130,7 @@
                 android:id="@+id/confirmPasswordTil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
                 android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/confirmPasswordEt"
@@ -135,9 +143,10 @@
                     android:background="@drawable/round"
                     android:drawableStart="@drawable/baseline_password_24"
                     android:backgroundTint="@color/white"
-                    android:hint=" Confirm Password"
+                    android:hint="@string/confirm_password"
                     android:textColor="@color/mainColor"
                     android:textColorHint="@color/mainColor"
+                    android:imeOptions="actionDone"
                     android:textSize="15sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -202,6 +211,7 @@
 
         <!--  google imageButton for signup or sign in -->
             <ImageButton
+                android:id="@+id/googleSignUpButton"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="25dp"
@@ -225,18 +235,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Do you have an account?"
+                    android:text="@string/do_you_have_an_account"
                     android:textColor="@color/mainColor"
                     android:textSize="15sp" />
                 <TextView
+                    android:id="@+id/loginViewBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" Login"
+                    android:text="@string/login"
                     android:textColor="@color/mainColor"
                     android:textSize="15sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/statusTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_green_dark"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"/>
 
         </LinearLayout>
     </ScrollView>

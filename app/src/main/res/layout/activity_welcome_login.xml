@@ -48,14 +48,14 @@
                     android:background="@drawable/round"
                     android:gravity="center">
                     <ImageButton
-                        android:id="@+id/button_x"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:background="@null"
                         android:padding="10sp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/google" >
-                    </ImageButton>
+                        android:src="@drawable/google"
+                        android:contentDescription="TODO" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

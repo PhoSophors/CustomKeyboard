@@ -1,125 +1,246 @@
 package com.fe.customizekeyboard.activity
 
-import android.content.res.ColorStateList
+import android.content.ContentValues.TAG
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fe.customizekeyboard.R
 import com.fe.customizekeyboard.databinding.ActivityRegisterBinding
-
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
+import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
+import android.graphics.Color as AndroidColor
 
 class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
-    private lateinit var binding: ActivityRegisterBinding
-    private  lateinit var mBinding:ActivityRegisterBinding
+    private  lateinit var binding:ActivityRegisterBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private val RC_SIGN_IN = 9001
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
-        binding = ActivityRegisterBinding.inflate(layoutInflater) ;
-        mBinding = ActivityRegisterBinding.inflate(LayoutInflater.from(this))
-        setContentView(mBinding.root);
+        binding = ActivityRegisterBinding.inflate(layoutInflater)
+        binding = ActivityRegisterBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
 
-        mBinding.fullNameEt.onFocusChangeListener = this
-        mBinding.emailEt.onFocusChangeListener = this
-        mBinding.passwordEt.onFocusChangeListener = this
-        mBinding.confirmPasswordEt.onFocusChangeListener = this
-    }
+        firebaseAuth = FirebaseAuth.getInstance()
 
-//    Call this function to check the validity of the full name field's input.
-    private fun validateFullName (): Boolean {
-        var errorMessage: String? = null
-        val value: String  = mBinding.fullNameEt.text.toString() // Gets the text entered in the full name field.
-        if (value.isEmpty()) { // If empty, sets an error message
-            errorMessage = "Full name is required"
+        binding.fullnameEt.onFocusChangeListener = this
+        binding.emailEt.onFocusChangeListener = this
+        binding.passwordEt.onFocusChangeListener = this
+        binding.confirmPasswordEt.onFocusChangeListener = this
+
+//        back button
+        binding.backRegisterBtn.setOnClickListener {
+            onBackPressed()
         }
 
-        if (errorMessage != null) { //If an error message was set, it's displayed.
-            mBinding.fullNameTil.apply {// Uses a Kotlin apply block to configure the text input layout.
-                isErrorEnabled = true // Enables error display for the layout.
-                error = errorMessage // Sets the specific error message to display.
+        binding.loginViewBtn.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.signupBtnEt.setOnClickListener {
+            val fullnameEt = binding.fullnameEt.text.toString()
+            val emailEt = binding.emailEt.text.toString()
+            val passwordEt = binding.passwordEt.text.toString()
+            val confirmPasswordEt = binding.confirmPasswordEt.text.toString()
+
+            if (fullnameEt.isNotEmpty() && emailEt.isNotEmpty() && passwordEt.isNotEmpty() && confirmPasswordEt.isNotEmpty()) {
+                if (passwordEt == confirmPasswordEt) {
+                    firebaseAuth.createUserWithEmailAndPassword(emailEt, passwordEt)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                val intent = Intent(this, ProfileActivity::class.java)
+                                showToast("Account created.", R.layout.custom_toast_success, R.id.toast_success)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                showToast("Email already login.", R.layout.custom_toast_error, R.id.toast_error)
+                            }
+                        }
+                } else {
+                    showToast("Password is not matching", R.layout.custom_toast_error,  R.id.toast_error)
+                }
+            } else {
+                showToast("Empty Fields Are not Allowed !!", R.layout.custom_toast_error,  R.id.toast_error)
             }
         }
-        return errorMessage == null //  Returns true if validation passed (no error), false if an error occurred.
-}
 
-//    Call this function to check the validity of the email field's input.
-    private fun validateEmail (): Boolean {
-        var errorMessage: String? = null
-        val value = mBinding.emailEt.text.toString()
-        if (value.isEmpty()) {
-            errorMessage = "Email is required"
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(value).matches()){
-            errorMessage = "Email address is invalid"
+        val currentUser = firebaseAuth.currentUser
+
+        if (currentUser != null) {
+            // The user is already signed in, navigate to MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish() // finish the current activity to prevent the user from coming back to the SignInActivity using the back button
         }
 
-        if (errorMessage != null) {
-            mBinding.emailTil.apply {
+        /***
+         * register with google account
+         */
+        // Configure Google Sign In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        // Set up Google Sign In button click listener
+        binding.googleSignUpButton.setOnClickListener {
+            signInWithGoogle()
+        }
+
+    }
+
+    /**
+     * toast set
+     */
+
+    private fun showToast(message: String, layoutId: Int, targetTextViewId: Int) {
+        val toast = Toast(this)
+
+        // Inflate the custom layout
+        val inflater = layoutInflater
+        val layout = inflater.inflate(layoutId, null)
+
+        // Set the text content
+        val textView = layout.findViewById<TextView>(targetTextViewId)
+        textView.text = message
+
+        // Set the custom view to the Toast
+        toast.view = layout
+        toast.duration = Toast.LENGTH_SHORT
+
+        toast.show()
+    }
+
+    /**
+     * register with google
+     */
+
+    private fun signInWithGoogle() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleGoogleSignInResult(task)
+        }
+    }
+
+    private fun handleGoogleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java)
+            firebaseAuthWithGoogle(account?.idToken)
+        } catch (e: ApiException) {
+            // Handle sign-in failure (e.g., no internet, account not found, etc.)
+            Log.w(TAG, "Google sign in failed", e)
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String?) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    FirebaseAuth.getInstance().currentUser
+                    //  Navigate to the profile activity.
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    /**
+     * create account from user
+     * validate
+     * 1. full name
+     * 2. email
+     * 3. password
+     * 4. confirm password
+     */
+    private fun validateField(editText: EditText, textInputLayout: TextInputLayout, validationCondition: (String) -> Boolean, errorMessage: String): Boolean {
+        val value = editText.text.toString()
+
+        if (!validationCondition(value)) {
+            textInputLayout.apply {
                 isErrorEnabled = true
                 error = errorMessage
             }
+            return false
         }
-        return errorMessage == null
+        textInputLayout.isErrorEnabled = false
+        return true
     }
 
-//    Call this function to check the validity of the password field's input.
-    private fun validatePassword ():Boolean {
-        var errorMessage: String? = null
-        val value = mBinding.passwordEt.text.toString()
-        if (value.isEmpty()) {
-            errorMessage = "Password is required"
-        } else if (value.length < 8){ //Checks if the password is shorter than 8 characters.
-            errorMessage = "Password must be 8 character long"
-        }
-
-        if (errorMessage != null) {
-            mBinding.passwordTil.apply {
-                isErrorEnabled = true
-                error = errorMessage
-            }
-        }
-        return errorMessage == null
+    private fun validateFullname(): Boolean {
+        return validateField(
+            binding.fullnameEt,
+            binding.fullnameTil,
+            { it.isNotEmpty() },
+            "Fullname is required"
+        )
     }
 
-//    Call this function to check the validity of the confirm password field's input.
-    private fun validateConfirmPassword ():Boolean {
-        var errorMessage: String? = null
-        val value = mBinding.confirmPasswordEt.text.toString()
-        if (value.isEmpty()) {
-            errorMessage = "Confirm password is required"
-        } else if (value.length < 8){
-            errorMessage = "Confirm password must be 6 character long"
-        }
-
-        if (errorMessage != null) {
-            mBinding.confirmPasswordTil.apply {
-                isErrorEnabled = true
-                error = errorMessage
-            }
-        }
-        return errorMessage == null
+    private fun validateEmail(): Boolean {
+        return validateField(
+            binding.emailEt,
+            binding.emailTil,
+            { Patterns.EMAIL_ADDRESS.matcher(it).matches() },
+            "Email is required"
+        )
     }
 
-//    Call this function to specifically check if the password and confirm password fields match.
-    private fun validatePasswordAndConfirmPassword ():Boolean {
-        var errorMessage: String? = null
-        val password = mBinding.passwordEt.text.toString()
-        val confirmPassword = mBinding.confirmPasswordEt.text.toString()
-        if (password != confirmPassword) {
-            errorMessage = "Confirm password doesn't match with password"
-        }
-        if (errorMessage != null) {
-            mBinding.confirmPasswordTil.apply {
-                isErrorEnabled = true
-                error = errorMessage
-            }
-        }
-        return errorMessage == null
+    private fun validatePassword(): Boolean {
+        return validateField(
+            binding.passwordEt,
+            binding.passwordTil,
+            { it.length >= 8 },
+            "Password must be 8 characters long"
+        )
     }
 
-//    This method is present but empty, suggesting it's not currently used for any click events.
+    private fun validateConfirmPassword(): Boolean {
+        val password = binding.passwordEt.text.toString()
+        val confirmPassword = binding.confirmPasswordEt.text.toString()
+
+        return validateField(
+            binding.confirmPasswordEt,
+            binding.confirmPasswordTil,
+            { confirmPassword.isNotEmpty() && confirmPassword == password },
+            "Password is not matching!"
+        )
+    }
+
+
+    //    This method is present but empty, suggesting it's not currently used for any click events.
     override fun onClick(view: View?) {
     }
 
@@ -127,59 +248,40 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
         if (view != null) {
             when(view.id) {
-                R.id.fullNameEt -> {
+                R.id.fullnameEt -> {
                     if (hasFocus) {
-                        if (mBinding.fullNameTil.isErrorEnabled) {
-                            mBinding.fullNameTil.isErrorEnabled = false
+                        if (binding.fullnameTil.isErrorEnabled) {
+                            binding.fullnameTil.isErrorEnabled = false
                         }
                     }else {
-                        validateFullName()
+                        validateFullname()
                     }
                 }
                 R.id.emailEt -> {
                     if (hasFocus) {
-                        if (mBinding.emailTil.isErrorEnabled) {
-                            mBinding.emailTil.isErrorEnabled = false
+                        if (binding.emailTil.isErrorEnabled) {
+                            binding.emailTil.isErrorEnabled = false
                         }
                     }else {
-                        if (validateEmail()) {
-
-                        }
+                        validateEmail()
                     }
                 }
                 R.id.passwordEt -> {
                     if (hasFocus) {
-                        if (mBinding.passwordTil.isErrorEnabled) {
-                            mBinding.passwordTil.isErrorEnabled = false
+                        if (binding.passwordTil.isErrorEnabled) {
+                            binding.passwordTil.isErrorEnabled = false
                         }
                     }else {
-                      if (validatePassword() && mBinding.confirmPasswordEt.text!!.isEmpty() && validateConfirmPassword() &&
-                              validatePasswordAndConfirmPassword()) {
-                          if (mBinding.confirmPasswordTil.isErrorEnabled) {
-                              mBinding.confirmPasswordTil.isCounterEnabled = false
-                          }
-                          mBinding.confirmPasswordTil.apply {
-                              setStartIconDrawable(R.drawable.check_circle_24)
-                              setStartIconTintList(ColorStateList.valueOf(Color.GREEN))
-                          }
-                      }
+                        validatePassword()
                     }
                 }
                 R.id.confirmPasswordEt -> {
                     if (hasFocus) {
-                        if (mBinding.confirmPasswordTil.isErrorEnabled) {
-                            mBinding.confirmPasswordTil.isErrorEnabled = false
+                        if (binding.confirmPasswordTil.isErrorEnabled) {
+                            binding.confirmPasswordTil.isErrorEnabled = false
                         }
-                    }else {
-                        if (validateConfirmPassword() && validatePassword() && validatePasswordAndConfirmPassword()){
-                            if (mBinding.passwordTil.isErrorEnabled) {
-                                mBinding.passwordTil.isCounterEnabled = false
-                            }
-                            mBinding.confirmPasswordTil.apply {
-                                setStartIconDrawable(R.drawable.check_circle_24)
-                                setStartIconTintList(ColorStateList.valueOf(Color.GREEN))
-                            }
-                        }
+                    } else {
+                        validateConfirmPassword()
                     }
                 }
 
@@ -187,10 +289,12 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
         }
     }
 
-//    This method is also present but always returns false, indicating it doesn't intercept any key events.
+
+    //    This method is also present but always returns false, indicating it doesn't intercept any key events.
     override fun onKey(view: View?, event: Int, keyEvent: KeyEvent?): Boolean {
-       return false
+        return false
     }
 
 
 }
+

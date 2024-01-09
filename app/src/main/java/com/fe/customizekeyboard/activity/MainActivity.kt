@@ -1,8 +1,10 @@
 package com.fe.customizekeyboard.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.fe.customizekeyboard.fragment.FavoriteFragment
 import com.fe.customizekeyboard.fragment.HomeFragment
@@ -10,33 +12,46 @@ import com.fe.customizekeyboard.fragment.ProductFragment
 import com.fe.customizekeyboard.R
 import com.fe.customizekeyboard.databinding.ActivityMainBinding
 import com.fe.customizekeyboard.fragment.ProfileFragment
+import com.google.firebase.auth.FirebaseAuth
+
 class MainActivity : AppCompatActivity() {
-
-
     private lateinit var binding: ActivityMainBinding
+    private lateinit var firebaseAuth: FirebaseAuth
+    private var userLoggedIn = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
+        firebaseAuth = FirebaseAuth.getInstance()
 
+        // Check if the user is logged in
+        checkUserLoggedIn()
 
-         // show fragment
-
+        // Show the initial fragment
         showFragment(HomeFragment())
 
+        // Set up BottomNavigationView listener
         binding.bottomNavigationView.setOnItemSelectedListener {
-            when(it.itemId){
-
+            when (it.itemId) {
                 R.id.mnuHome -> showFragment(HomeFragment())
-                R.id.mnuProduct-> showFragment(ProductFragment())
-                R.id.mnuProfile ->showFragment(ProfileFragment())
-                R.id.mnuFavorite ->{
-                    showActivity()
+                R.id.mnuProduct -> showFragment(ProductFragment())
+                R.id.mnuProfile -> {
+                    if (userLoggedIn) {
+                        showProfileActivity()
+                    } else {
+                        showFragment(ProfileFragment())
+                    }
                 }
-
-                else->{
+                R.id.mnuFavorite -> {
+                    if (userLoggedIn) {
+                        showFragment(FavoriteFragment())
+                    } else {
+                        showRegisterActivity()
+                    }
+                }
+                else -> {
 
                 }
             }
@@ -45,31 +60,31 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Draft register activity
-    //Check existing account can add favorite product
+    // Function to check if the user is logged in
+    private fun checkUserLoggedIn() {
+        val currentUser = firebaseAuth.currentUser
+        userLoggedIn = currentUser != null
+    }
 
-    private fun showActivity(){
-        val intent = Intent(this,RegisterActivity::class.java)
-
-        // Start the SecondActivity using the intent
+    // Navigate to RegisterActivity for non-logged-in users
+    private fun showRegisterActivity() {
+        val intent = Intent(this, RegisterActivity::class.java)
         startActivity(intent)
     }
 
-    // Fun show fragment
-    private fun showFragment(fragment: Fragment){
-
-        // Fragment manager
-        val fragmentManager  = supportFragmentManager
-         //fragmemt transaction
-        val fragmentTransaction =  fragmentManager.beginTransaction()
-
-        fragmentTransaction.replace(R.id.lytFragment ,fragment)
-        fragmentTransaction.commit()
-
+    // Navigate to ProfileActivity for non-logged-in users
+    private fun showProfileActivity() {
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
-
-
-
+    // Function to show fragments
+    private fun showFragment(fragment: Fragment) {
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.lytFragment, fragment)
+        fragmentTransaction.commit()
+    }
 
 }
