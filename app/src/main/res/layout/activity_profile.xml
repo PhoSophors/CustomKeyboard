@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:backgroundTint="@color/gray"
+    android:background="@color/white"
+    tools:context=".activity.ProfileActivity">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -20,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="left">
                 <ImageView
+                    android:id="@+id/backBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/baseline_arrow_back_24"
@@ -31,14 +36,15 @@
                 android:layout_width="170sp"
                 android:layout_height="170sp"
                 android:layout_marginTop="25dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/baseline_username_24"
+                android:scaleType="centerCrop"
                 android:background="@drawable/profile_round"
-                android:padding="10dp"
-                />
+                android:src="@drawable/baseline_account_circle_24"
+                android:backgroundTint="@color/white"
+                android:contentDescription="TODO" />
 
 <!--            text view (user info) -->
             <TextView
+                android:id="@+id/fullnameTil"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="25dp"
@@ -47,40 +53,14 @@
                 android:height="60dp"
                 android:padding="10dp"
                 android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
-                android:hint="Pho Sophors"
+                android:backgroundTint="@color/white"
+                android:hint="@string/pho_sophors"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp" />
+
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="start|end"
-                android:layout_marginTop="25dp"
-                android:drawablePadding="6dp"
-                android:gravity="left|center"
-                android:height="60dp"
-                android:padding="10dp"
-                android:background="@drawable/round"
-                android:backgroundTint="@color/gray"
-                android:hint="Male"
-                android:textColorHint="@color/mainColor"
-                android:textSize="15sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="start|end"
-                android:layout_marginTop="25dp"
-                android:drawablePadding="6dp"
-                android:gravity="left|center"
-                android:height="60dp"
-                android:padding="10dp"
-                android:background="@drawable/round"
-                android:drawableEnd="@drawable/baseline_calendar_month_24"
-                android:backgroundTint="@color/gray"
-                android:hint="11/Jan/2002"
-                android:textColorHint="@color/mainColor"
-                android:textSize="15sp" />
-            <TextView
+                android:id="@+id/showUserEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_gravity="start|end"
@@ -91,34 +71,20 @@
                 android:padding="10dp"
                 android:background="@drawable/round"
                 android:drawableEnd="@drawable/baseline_email_24"
-                android:backgroundTint="@color/gray"
+                android:backgroundTint="@color/white"
                 android:hint="phosophors.097@gmail.com"
-                android:textColorHint="@color/mainColor"
-                android:textSize="15sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_gravity="start|end"
-                android:layout_marginTop="25dp"
-                android:drawablePadding="6dp"
-                android:gravity="left|center"
-                android:height="60dp"
-                android:padding="10dp"
-                android:background="@drawable/round"
-                android:drawableEnd="@drawable/baseline_phone_enabled_24"
-                android:backgroundTint="@color/gray"
-                android:hint="+855: 12 333 555"
                 android:textColorHint="@color/mainColor"
                 android:textSize="15sp" />
 
 <!--            edit profile button-->
             <Button
+                android:id="@+id/signOut"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="25dp"
                 android:background="@drawable/round"
                 android:backgroundTint="@color/mainColor"
-                android:text="Edit Profile"
+                android:text="@string/logout1"
                 android:textColor="@color/white"
                 android:textSize="15sp"
                 android:textStyle="bold" />

@@ -10,8 +10,9 @@ import com.fe.customizekeyboard.fragment.ProductFragment
 import com.fe.customizekeyboard.R
 import com.fe.customizekeyboard.databinding.ActivityMainBinding
 import com.fe.customizekeyboard.fragment.ProfileFragment
-
 class MainActivity : AppCompatActivity() {
+
+
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +31,9 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.mnuHome -> showFragment(HomeFragment())
                 R.id.mnuProduct-> showFragment(ProductFragment())
-                R.id.mnuProfile ->showFragment(ProfileFragment())
+                R.id.mnuProfile -> {
+                    showProfileActivity()
+                }
                 R.id.mnuFavorite ->{
                     showActivity()
                 }
@@ -55,6 +58,14 @@ class MainActivity : AppCompatActivity() {
         // Start the SecondActivity using the intent
         startActivity(intent)
     }
+    private fun showProfileActivity(){
+        val intent = Intent(this,ProfileActivity::class.java)
+
+        // Start the SecondActivity using the intent
+        startActivity(intent)
+        finish()
+    }
+
 
     // Fun show fragment
     private fun showFragment(fragment: Fragment){
