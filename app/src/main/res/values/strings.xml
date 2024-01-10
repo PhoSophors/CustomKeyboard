@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">CustomizeKeyboard</string>
+    <string name="app_name">KeyLap</string>
     <string name="web_client_id">549545926559-9j90c81akfsqo1j9n0mvljm69m8m6kim.apps.googleusercontent.com</string>
     <string name="login">Login</string>
     <string name="do_you_have_an_account">"Do you have an account? "</string>
@@ -8,5 +8,4 @@
     <string name="email">Email</string>
     <string name="logout">Logout</string>
     <string name="logout1">Logout</string>
-    <string name="pho_sophors">Pho Sophors</string>
 </resources>

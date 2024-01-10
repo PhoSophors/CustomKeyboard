@@ -44,7 +44,7 @@
                 android:src="@drawable/baseline_username_24"
                 android:background="@drawable/profile_round"
                 android:padding="10dp"
-                />
+                android:contentDescription="TODO" />
 
             <!--           edit  (user info) -->
             <EditText
