@@ -28,17 +28,4 @@ class WelcomeActivity:AppCompatActivity() {
     }
 
 
-//    private lateinit var binding: ActivityWelcomeTestBinding
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        binding = ActivityWelcomeTestBinding.inflate(layoutInflater)
-//
-//        setContentView(binding.root)
-//    }
-
-
-
-
 }

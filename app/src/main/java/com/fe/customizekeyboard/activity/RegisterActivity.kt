@@ -1,29 +1,37 @@
 package com.fe.customizekeyboard.activity
 
+import android.content.ContentValues.TAG
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fe.customizekeyboard.R
 import com.fe.customizekeyboard.databinding.ActivityRegisterBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-
+import android.graphics.Color as AndroidColor
 
 class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
     private  lateinit var binding:ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
-    companion object {
-        private const val RC_SIGN_IN = 9001
-    }
 
+    private lateinit var googleSignInClient: GoogleSignInClient
+    private val RC_SIGN_IN = 9001
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -33,6 +41,7 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        binding.fullnameEt.onFocusChangeListener = this
         binding.emailEt.onFocusChangeListener = this
         binding.passwordEt.onFocusChangeListener = this
         binding.confirmPasswordEt.onFocusChangeListener = this
@@ -48,29 +57,29 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
         }
 
         binding.signupBtnEt.setOnClickListener {
+            val fullnameEt = binding.fullnameEt.text.toString()
             val emailEt = binding.emailEt.text.toString()
             val passwordEt = binding.passwordEt.text.toString()
             val confirmPasswordEt = binding.confirmPasswordEt.text.toString()
 
-            if (emailEt.isNotEmpty() && passwordEt.isNotEmpty() && confirmPasswordEt.isNotEmpty()) {
+            if (fullnameEt.isNotEmpty() && emailEt.isNotEmpty() && passwordEt.isNotEmpty() && confirmPasswordEt.isNotEmpty()) {
                 if (passwordEt == confirmPasswordEt) {
-
-                    firebaseAuth.createUserWithEmailAndPassword(emailEt, passwordEt).addOnCompleteListener {
-                        if (it.isSuccessful) {
-                            val intent = Intent(this, ProfileActivity::class.java)
-                            Toast.makeText(this, "Account created.", Toast.LENGTH_SHORT).show()
-                            startActivity(intent)
-                            finish()
-                        } else {
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                    firebaseAuth.createUserWithEmailAndPassword(emailEt, passwordEt)
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                val intent = Intent(this, ProfileActivity::class.java)
+                                showToast("Account created.", R.layout.custom_toast_success, R.id.toast_success)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                showToast("Email already login.", R.layout.custom_toast_error, R.id.toast_error)
+                            }
                         }
-                    }
                 } else {
-                    Toast.makeText(this, "Password is not matching", Toast.LENGTH_SHORT).show()
+                    showToast("Password is not matching", R.layout.custom_toast_error,  R.id.toast_error)
                 }
             } else {
-                Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
-
+                showToast("Empty Fields Are not Allowed !!", R.layout.custom_toast_error,  R.id.toast_error)
             }
         }
 
@@ -83,30 +92,51 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
             finish() // finish the current activity to prevent the user from coming back to the SignInActivity using the back button
         }
 
-
-//        google
-//        val googleBtnRegister = findViewById<Button>(R.id.googleBtnRegister)
-//        googleBtnRegister.setOnClickListener {
-//            signIn()
-//        }
-
-        binding.googleBtnRegister.setOnClickListener {
-//            val googleBtnRegister = findViewById<Button>(R.id.googleBtnRegister)
-            val intent = Intent(this, ProfileActivity::class.java)
-            signIn(intent)
-            finish()
-        }
-    }
-
-//    google
-
-    private fun signIn(intent: Intent) {
+        /***
+         * register with google account
+         */
+        // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.web_client_id))
             .requestEmail()
             .build()
 
-        val googleSignInClient = GoogleSignIn.getClient(this, gso)
+        googleSignInClient = GoogleSignIn.getClient(this, gso)
+
+        // Set up Google Sign In button click listener
+        binding.googleSignUpButton.setOnClickListener {
+            signInWithGoogle()
+        }
+
+    }
+
+    /**
+     * toast set
+     */
+
+    private fun showToast(message: String, layoutId: Int, targetTextViewId: Int) {
+        val toast = Toast(this)
+
+        // Inflate the custom layout
+        val inflater = layoutInflater
+        val layout = inflater.inflate(layoutId, null)
+
+        // Set the text content
+        val textView = layout.findViewById<TextView>(targetTextViewId)
+        textView.text = message
+
+        // Set the custom view to the Toast
+        toast.view = layout
+        toast.duration = Toast.LENGTH_SHORT
+
+        toast.show()
+    }
+
+    /**
+     * register with google
+     */
+
+    private fun signInWithGoogle() {
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
@@ -116,105 +146,99 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
 
         if (requestCode == RC_SIGN_IN) {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: ApiException) {
-                Toast.makeText(this, "Google sign in failed: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
+            handleGoogleSignInResult(task)
         }
     }
 
-    private fun firebaseAuthWithGoogle(idToken: String) {
+    private fun handleGoogleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java)
+            firebaseAuthWithGoogle(account?.idToken)
+        } catch (e: ApiException) {
+            // Handle sign-in failure (e.g., no internet, account not found, etc.)
+            Log.w(TAG, "Google sign in failed", e)
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String?) {
         val credential = GoogleAuthProvider.getCredential(idToken, null)
-        firebaseAuth.signInWithCredential(credential)
+        FirebaseAuth.getInstance().signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    val user = firebaseAuth.currentUser
-                    Toast.makeText(this, "Signed in as ${user?.displayName}", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, ProfileActivity::class.java))
+                    // Sign in success, update UI with the signed-in user's information
+                    FirebaseAuth.getInstance().currentUser
+                    //  Navigate to the profile activity.
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this, "Authentication failed", Toast.LENGTH_SHORT).show()
+                    // If sign in fails, display a message to the user.
+                    Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
+    /**
+     * create account from user
+     * validate
+     * 1. full name
+     * 2. email
+     * 3. password
+     * 4. confirm password
+     */
+    private fun validateField(editText: EditText, textInputLayout: TextInputLayout, validationCondition: (String) -> Boolean, errorMessage: String): Boolean {
+        val value = editText.text.toString()
 
-    //    Call this function to check the validity of the email field's input.
-    private fun validateEmail (): Boolean {
-        var errorMessage: String? = null
-        val value = binding.emailEt.text.toString() // Gets the text entered in the full name field.
-        if (value.isEmpty()) { // If empty, sets an error message
-            errorMessage = "Email is required"
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(value).matches()){
-            errorMessage = "Email address is invalid"
-        }
-
-        if (errorMessage != null) { //If an error message was set, it's displayed.
-            binding.emailTil.apply {// Uses a Kotlin apply block to configure the text input layout.
-                isErrorEnabled = true  // Enables error display for the layout.
-                error = errorMessage  // Sets the specific error message to display.
-            }
-        }
-        return errorMessage == null //  Returns true if validation passed (no error), false if an error occurred.
-    }
-
-    //    Call this function to check the validity of the password field's input.
-    private fun validatePassword ():Boolean {
-        var errorMessage: String? = null
-        val value = binding.passwordEt.text.toString()
-
-        if (value.isEmpty()) {
-            errorMessage = "Password is required"
-        } else if (value.length < 8){ //Checks if the password is shorter than 8 characters.
-            errorMessage = "Password must be 8 character long"
-        }
-
-        if (errorMessage != null) {
-            binding.passwordTil.apply {
+        if (!validationCondition(value)) {
+            textInputLayout.apply {
                 isErrorEnabled = true
                 error = errorMessage
             }
+            return false
         }
-        return errorMessage == null
+        textInputLayout.isErrorEnabled = false
+        return true
     }
 
-    //    Call this function to check the validity of the confirm password field's input.
-    private fun validateConfirmPassword ():Boolean {
-        var errorMessage: String? = null
-        val value = binding.confirmPasswordEt.text.toString()
-        if (value.isEmpty()) {
-            errorMessage = "Confirm password is required"
-        } else if (value.length < 8){
-            errorMessage = "Confirm password must be 8 character long"
-        }
-
-        if (errorMessage != null) {
-            binding.confirmPasswordTil.apply {
-                isErrorEnabled = true
-                error = errorMessage
-            }
-        }
-        return errorMessage == null
+    private fun validateFullname(): Boolean {
+        return validateField(
+            binding.fullnameEt,
+            binding.fullnameTil,
+            { it.isNotEmpty() },
+            "Fullname is required"
+        )
     }
 
-    //    Call this function to specifically check if the password and confirm password fields match.
-    private fun validatePasswordAndConfirmPassword ():Boolean {
-        var errorMessage: String? = null
+    private fun validateEmail(): Boolean {
+        return validateField(
+            binding.emailEt,
+            binding.emailTil,
+            { Patterns.EMAIL_ADDRESS.matcher(it).matches() },
+            "Email is required"
+        )
+    }
+
+    private fun validatePassword(): Boolean {
+        return validateField(
+            binding.passwordEt,
+            binding.passwordTil,
+            { it.length >= 8 },
+            "Password must be 8 characters long"
+        )
+    }
+
+    private fun validateConfirmPassword(): Boolean {
         val password = binding.passwordEt.text.toString()
         val confirmPassword = binding.confirmPasswordEt.text.toString()
-        if (password != confirmPassword) {
-            errorMessage = "Confirm password doesn't match with password"
-        }
-        if (errorMessage != null) {
-            binding.confirmPasswordTil.apply {
-                isErrorEnabled = true
-                error = errorMessage
-            }
-        }
-        return errorMessage == null
+
+        return validateField(
+            binding.confirmPasswordEt,
+            binding.confirmPasswordTil,
+            { confirmPassword.isNotEmpty() && confirmPassword == password },
+            "Password is not matching!"
+        )
     }
+
 
     //    This method is present but empty, suggesting it's not currently used for any click events.
     override fun onClick(view: View?) {
@@ -224,6 +248,15 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
         if (view != null) {
             when(view.id) {
+                R.id.fullnameEt -> {
+                    if (hasFocus) {
+                        if (binding.fullnameTil.isErrorEnabled) {
+                            binding.fullnameTil.isErrorEnabled = false
+                        }
+                    }else {
+                        validateFullname()
+                    }
+                }
                 R.id.emailEt -> {
                     if (hasFocus) {
                         if (binding.emailTil.isErrorEnabled) {
@@ -231,8 +264,6 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
                         }
                     }else {
                         validateEmail()
-
-
                     }
                 }
                 R.id.passwordEt -> {
@@ -257,6 +288,7 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
             }
         }
     }
+
 
     //    This method is also present but always returns false, indicating it doesn't intercept any key events.
     override fun onKey(view: View?, event: Int, keyEvent: KeyEvent?): Boolean {

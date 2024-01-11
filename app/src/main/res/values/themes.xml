@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.CustomizeKeyboard" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Primary brand color. -->
-<!--        <item name="colorPrimary">@color/white</item>-->
-<!--        <item name="colorPrimaryVariant">@color/fe_color</item>-->
-<!--        <item name="colorOnPrimary">@color/white</item>-->
+                <item name="colorPrimary">@color/white</item>
+                <item name="colorPrimaryVariant">@color/mainColor</item>
+                <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-<!--        <item name="colorSecondary">@color/fe_color</item>-->
-<!--        <item name="colorSecondaryVariant">@color/fe_color</item>-->
-<!--        <item name="colorOnSecondary">@color/black</item>-->
+                <item name="colorSecondary">@color/mainColor</item>
+                <item name="colorSecondaryVariant">@color/mainColor</item>
+                <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-<!--        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>-->
+                <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
