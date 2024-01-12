@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -29,6 +30,19 @@ class ProfileActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish() // Close the WelcomeActivity to prevent going back to it
+        }
+
+        binding.signOut.setOnClickListener {
+            showSignOutConfirmationDialog()
+        }
+        binding.updateProfile.setOnClickListener {
+            val intent = Intent(this, UpdateProfileActivity::class.java)
+            startActivity(intent)
+            finish() // Close the WelcomeActivity to prevent going back to it
+        }
+
+        binding.deleteAccount.setOnClickListener {
+            showDeleteAccountConfirmationDialog()
         }
 
         // Get the user information
@@ -70,9 +84,6 @@ class ProfileActivity : AppCompatActivity() {
             // Handle the case where the user is not signed in
         }
 
-        binding.signOut.setOnClickListener {
-            showSignOutConfirmationDialog()
-        }
     }
 
 
@@ -129,4 +140,55 @@ class ProfileActivity : AppCompatActivity() {
             // You can set a default image or hide the ImageView
         }
     }
+
+    /**
+     * delete account fun
+     */
+    private fun showDeleteAccountConfirmationDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder.setTitle("Delete Account")
+        alertDialogBuilder.setMessage("Are you sure you want to delete your account? This action is irreversible.")
+        alertDialogBuilder.setPositiveButton("Delete Account") { _, _ ->
+            // Call the function to delete the user account
+            deleteAccount()
+        }
+        alertDialogBuilder.setNegativeButton("Cancel") { dialog: DialogInterface, _: Int ->
+            dialog.dismiss()
+        }
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
+    private fun deleteAccount() {
+        val user = firebaseAuth.currentUser
+
+        // Check if the user is signed in
+        if (user != null) {
+            // Delete the user's account
+            user.delete()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Account deleted successfully
+                        val intent = Intent(this, RegisterActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        // Handle the case where account deletion fails
+                        val exception = task.exception
+                        // Log the exception for debugging
+                        exception?.printStackTrace()
+
+                        // Show a toast with the exception message
+                        Toast.makeText(this, "Failed to delete account: ${exception?.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+        } else {
+            // Handle the case where the user is not signed in
+            Toast.makeText(this, "User not signed in.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
 }

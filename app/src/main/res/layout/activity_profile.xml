@@ -8,92 +8,231 @@
     android:background="@color/white"
     android:backgroundTint="@color/gray"
     tools:context=".activity.ProfileActivity">
-
-
-    <androidx.cardview.widget.CardView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
-        app:cardCornerRadius="30dp">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:gravity="center">
-            <!--            back icon -->
+            android:layout_height="match_parent">
+
+
+            <!--    slide bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/product"/>
+
+            <!--    card view (image, full name, email) -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                android:elevation="0dp"
+                app:cardUseCompatPadding="true"
+                android:layout_marginTop="-60dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:gravity="center">
+                    <!--            back icon -->
+                    <ImageView
+                        android:id="@+id/profileBackBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:src="@drawable/baseline_arrow_back_24" />
+                    <!--  profile image -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100sp"
+                        android:layout_height="100sp"
+                        app:cardCornerRadius="60dp"
+                        android:layout_marginTop="25dp">
+                        <ImageView
+                            android:id="@+id/imageViewProfilePhoto"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:scaleType="centerCrop"
+                            android:layout_gravity="center"
+                            android:background="@drawable/profile_round"
+                            android:src="@drawable/baseline_account_circle_24"/>
+                    </androidx.cardview.widget.CardView>
+                    <!-- Full name -->
+                    <TextView
+                        android:id="@+id/showFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:hint="Full name"
+                        android:textStyle="bold"
+                        android:textColorHint="@color/mainColor"
+                        android:textSize="25sp" />
+                    <!-- Email -->
+                    <TextView
+                        android:id="@+id/showUserEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:hint="Email"
+                        android:textColorHint="@color/mainColor"
+                        android:textSize="18sp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ============================ Account =========================== -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="left">
-                <ImageView
-                    android:id="@+id/profileBackBtn"
-                    android:layout_width="wrap_content"
+                android:padding="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_arrow_back_24" />
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-                <ImageView
-                    android:id="@+id/editProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_mode_edit_24"
-                    app:tint="@color/mainColor"/>
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/white">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/square_round"
+                        style="@style/ButtonStyleError"
+                        android:text="Account"
+                        android:textColor="@color/mainColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:drawablePadding="8dp"
+                        android:gravity="start|center_vertical"
+                         />
+                    <!-- Divider Line -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray" />
+                    <TextView
+                        android:id="@+id/updateProfile"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/square_round"
+                        style="@style/ButtonStyleError"
+                        android:text="Update Profile"
+                        android:textColor="@color/mainColor"
+                        android:textSize="15sp"
+                        android:drawablePadding="8dp"
+                        android:gravity="start|center_vertical"
+                        app:drawableEndCompat="@drawable/baseline_arrow_forward_24" />
+                    <!-- Divider Line -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray" />
+                    <TextView
+                        android:id="@+id/changePin"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/square_round"
+                        style="@style/ButtonStyleError"
+                        android:text="Forgot password"
+                        android:textColor="@color/mainColor"
+                        android:textSize="15sp"
+                        android:drawablePadding="8dp"
+                        android:gravity="start|center_vertical"
+                        app:drawableEndCompat="@drawable/baseline_arrow_forward_24" />
+                    <!-- Divider Line -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray" />
+                    <TextView
+                        android:id="@+id/deleteAccount"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/square_round"
+                        style="@style/ButtonStyleError"
+                        android:text="Delete Account"
+                        android:textColor="@color/mainColor"
+                        android:textSize="15sp"
+                        android:drawablePadding="8dp"
+                        android:gravity="start|center_vertical"
+                        app:drawableEndCompat="@drawable/baseline_arrow_forward_24" />
+                    <!-- Divider Line -->
+                </LinearLayout>
             </LinearLayout>
-            <!--  profile image -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="120sp"
-                android:layout_height="120sp"
-                app:cardCornerRadius="60dp"
-                android:layout_marginTop="25dp">
-                <ImageView
-                    android:id="@+id/imageViewProfilePhoto"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:scaleType="centerCrop"
-                    android:layout_gravity="center"
-                    android:background="@drawable/profile_round"
-                    android:src="@drawable/baseline_account_circle_24"/>
-            </androidx.cardview.widget.CardView>
-            <!-- Full name -->
-            <TextView
-                android:id="@+id/showFullName"
+
+            <!-- ============================ App setting =========================== -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center"
-                android:hint="Full name"
-                android:textStyle="bold"
-                android:textColorHint="@color/mainColor"
-                android:textSize="25sp" />
-            <!-- Email -->
-            <TextView
-                android:id="@+id/showUserEmail"
-                android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:gravity="center"
-                android:hint="Email"
-                android:textColorHint="@color/mainColor"
-                android:textSize="18sp" />
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:background="@color/white"
+                    android:backgroundTint="@color/white">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/square_round"
+                        style="@style/ButtonStyleError"
+                        android:text="App Setting"
+                        android:textColor="@color/mainColor"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:drawablePadding="8dp"
+                        android:gravity="start|center_vertical" />
+                    <!-- Divider Line -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray" />
+                    <TextView
+                        android:id="@+id/changeLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/square_round"
+                        style="@style/ButtonStyleError"
+                        android:text="Change Language"
+                        android:textColor="@color/mainColor"
+                        android:textSize="15sp"
+                        android:drawablePadding="8dp"
+                        android:gravity="start|center_vertical"
+                        app:drawableEndCompat="@drawable/baseline_arrow_forward_24" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:orientation="vertical"
+                        android:background="@color/white"
+                        android:backgroundTint="@color/white">
+                        <TextView
+                            android:id="@+id/signOut"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/square_round"
+                            style="@style/ButtonStyleError"
+                            android:text="@string/logout1"
+                            android:textColor="@color/mainColor"
+                            android:textSize="15sp"
+                            android:drawablePadding="8dp"
+                            android:gravity="start|center_vertical"
+                            app:drawableEndCompat="@drawable/baseline_arrow_forward_24" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- logout button -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
-        <Button
-            android:id="@+id/signOut"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/round"
-            style="@style/ButtonStyleError"
-            android:text="@string/logout1"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
+    </ScrollView>
 </LinearLayout>

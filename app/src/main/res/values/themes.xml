@@ -29,7 +29,8 @@
 
     <!-- Theme for Activity Profile -->
     <style name="Theme.Material3.Light.NoActionBar.Profile" parent="Theme.Material3.Light.NoActionBar.Base">
-        <item name="android:statusBarColor">@color/gray</item>
+        <item name="android:statusBarColor">@color/product</item>
+        <item name="android:navigationBarColor">@color/gray</item>
         <!-- Customize status bar color for Activity1 -->
     </style>>
 

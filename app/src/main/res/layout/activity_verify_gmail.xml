@@ -41,7 +41,7 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         android:gravity="center"
-        android:padding="50dp">
+        android:padding="0dp">
         <!--  text ( Add a Pin Number we sent to your gmail ) -->
         <LinearLayout
             android:layout_width="wrap_content"
@@ -56,12 +56,14 @@
                 android:textColor="@color/mainColor"
                 android:textSize="15sp" />
             <TextView
+                android:id="@+id/timerTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 60 s"
                 android:textColor="@color/mainColor"
                 android:textSize="15sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <!--                code section -->
@@ -70,35 +72,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:orientation="horizontal">
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/round"
-                android:backgroundTint="@color/white"
-                android:gravity="center"
-                android:text="6"
-                android:textColor="@color/mainColor"
-                android:textSize="20sp"
-                android:textStyle="bold|italic" />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/round"
-                android:backgroundTint="@color/white"
-                android:gravity="center"
-                android:text="8"
-                android:textColor="@color/mainColor"
-                android:textSize="20sp"
-                android:textStyle="bold|italic" />
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-            <TextView
+            <EditText
+                android:id="@+id/pin1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round"
@@ -112,13 +87,74 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
-            <TextView
+            <EditText
+                android:id="@+id/pin2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/pin3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/pin4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round"
                 android:backgroundTint="@color/white"
                 android:gravity="center"
                 android:text="4"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/pin5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/mainColor"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+            <EditText
+                android:id="@+id/pin6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/white"
+                android:gravity="center"
+                android:text="6"
                 android:textColor="@color/mainColor"
                 android:textSize="20sp"
                 android:textStyle="bold|italic" />
@@ -133,6 +169,7 @@
 
 <!-- verify button -->
     <Button
+        android:id="@+id/verifyBtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/round"

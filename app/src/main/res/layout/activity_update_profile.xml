@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/gray"
+    android:background="@color/white"
+    tools:context=".activity.UpdateProfileActivity">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!--   section back icon  -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:backgroundTint="@color/product"
+                android:background="@color/product"
+                android:padding="20dp"
+                android:layout_gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/backUpdateProfileBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/baseline_arrow_back_24"
+                        app:tint="@color/white" />
+
+                    <!--  text "update profile" -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:text="  Update Profile"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--   section input field and register with google-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@drawable/top_round_corner"
+                android:padding="20dp"
+                android:layout_marginTop="-40dp">
+
+
+                <!--  filed full name -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fullnameTil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fullnameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:drawablePadding="6dp"
+                        android:autofillHints="none"
+                        android:background="@drawable/round"
+                        android:backgroundTint="@color/gray"
+                        android:textColorHint="@color/mainColor"
+                        android:drawableStart="@drawable/baseline_account_circle_24"
+                        android:drawableTint="@color/mainColor"
+                        android:ems="10"
+                        android:hint="Full Name"
+                        android:inputType="textNoSuggestions"
+                        android:padding="15dp"
+                        android:textSize="15sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  filed Email -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailTil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:drawablePadding="6dp"
+                        android:autofillHints="none"
+                        android:background="@drawable/round"
+                        android:backgroundTint="@color/gray"
+                        android:textColorHint="@color/mainColor"
+                        android:drawableStart="@drawable/baseline_email_24"
+                        android:ems="10"
+                        android:hint="Email"
+                        android:inputType="textNoSuggestions"
+                        android:padding="15dp"
+                        android:textSize="15sp"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Update button -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="27dp">
+                    <Button
+                        android:id="@+id/updateeButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/round"
+                        android:text="update"
+                        android:textSize="15sp"
+                        style="@style/ButtonStyleYellow"
+                        android:textColor="@color/mainColor"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
