@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     if (userLoggedIn) {
                         showFragment(FavoriteFragment())
                     } else {
-                        showRegisterActivity()
+                        showWelcomeCreateAccountActivity()
                     }
                 }
                 else -> {
@@ -67,8 +67,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Navigate to RegisterActivity for non-logged-in users
-    private fun showRegisterActivity() {
-        val intent = Intent(this, RegisterActivity::class.java)
+    private fun showWelcomeCreateAccountActivity() {
+        val intent = Intent(this, WelcomeCreateAccountActivity::class.java)
         startActivity(intent)
     }
 

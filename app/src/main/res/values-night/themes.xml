@@ -1,16 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.CustomizeKeyboard" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/mainColor</item>
-        <item name="colorPrimaryVariant">@color/mainColor</item>
-        <item name="colorOnPrimary">@color/black</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/mainColor</item>
-        <item name="colorSecondaryVariant">@color/mainColor</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-         Customize your theme here.
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- Customize your theme here. -->
+
     </style>
 </resources>

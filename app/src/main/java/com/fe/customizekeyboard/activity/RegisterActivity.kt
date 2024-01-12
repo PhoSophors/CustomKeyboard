@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.UserProfileChangeRequest
 import android.graphics.Color as AndroidColor
 
 class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
@@ -67,16 +68,28 @@ class RegisterActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusC
                     firebaseAuth.createUserWithEmailAndPassword(emailEt, passwordEt)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
+                                // Get the FirebaseUser object
+                                val firebaseUser = firebaseAuth.currentUser
+
+                                // Update the user's display name
+                                firebaseUser?.updateProfile(
+                                    UserProfileChangeRequest.Builder()
+                                        .setDisplayName(fullnameEt)
+                                        .build()
+                                )
+
+                                // Pass the user's name to the ProfileActivity
                                 val intent = Intent(this, ProfileActivity::class.java)
+                                intent.putExtra("USER_NAME", fullnameEt)
                                 showToast("Account created.", R.layout.custom_toast_success, R.id.toast_success)
                                 startActivity(intent)
                                 finish()
                             } else {
-                                showToast("Email already login.", R.layout.custom_toast_error, R.id.toast_error)
+                                showToast("Email already in use.", R.layout.custom_toast_error, R.id.toast_error)
                             }
                         }
                 } else {
-                    showToast("Password is not matching", R.layout.custom_toast_error,  R.id.toast_error)
+                    showToast("Password is not matching", R.layout.custom_toast_error, R.id.toast_error)
                 }
             } else {
                 showToast("Empty Fields Are not Allowed !!", R.layout.custom_toast_error,  R.id.toast_error)

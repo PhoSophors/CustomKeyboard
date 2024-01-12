@@ -1,16 +1,64 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Base application theme for Theme.AppCompat.Light.NoActionBar -->
     <style name="Theme.CustomizeKeyboard" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Primary brand color. -->
-                <item name="colorPrimary">@color/white</item>
-                <item name="colorPrimaryVariant">@color/mainColor</item>
-                <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-                <item name="colorSecondary">@color/mainColor</item>
-                <item name="colorSecondaryVariant">@color/mainColor</item>
-                <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-                <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Base application theme for heme.Material3.Light.NoActionBar  -->
+    <style name="Theme.Material3.Light.NoActionBar.Base" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- Default navigation bar color for all activities -->
+    </style>
+
+<!-- ======================= Activity for Theme.Material3.Light.NoActionBar =======================-->
+    <!-- Theme for Activity Welcome -->
+    <style name="Theme.Material3.Light.NoActionBar.Welcome" parent="Theme.Material3.Light.NoActionBar.Base">
+        <item name="android:statusBarColor">@color/end</item>
+        <item name="android:navigationBarColor">@color/start</item>
+        <!-- Customize status bar color for Activity1 -->
+    </style>>
+
+    <!-- Theme for Activity Register -->
+    <style name="Theme.Material3.Light.NoActionBar.RegisterLogin" parent="Theme.Material3.Light.NoActionBar.Base">
+        <item name="android:statusBarColor">@color/product</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <!-- Customize status bar color for Activity1 -->
+    </style>>
+
+    <!-- Theme for Activity Profile -->
+    <style name="Theme.Material3.Light.NoActionBar.Profile" parent="Theme.Material3.Light.NoActionBar.Base">
+        <item name="android:statusBarColor">@color/product</item>
+        <item name="android:navigationBarColor">@color/gray</item>
+        <!-- Customize status bar color for Activity1 -->
+    </style>>
+
+    <!-- Theme for Activity ActivityLightBackground -->
+    <style name="Theme.Material3.Light.NoActionBar.ActivityLightBackground" parent="Theme.Material3.Light.NoActionBar.Base">
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <!-- Customize status bar color for Activity1 -->
+    </style>>
+
+    <!-- ======================= ButtonStyle =======================-->
+    <!-- ButtonStyleYellow -->
+    <style name="ButtonStyleYellow" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/btnColor</item>
+        <!-- Customize button color -->
+    </style>
+
+    <!-- ButtonStyleYellow -->
+    <style name="ButtonStyleError" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/toast_error</item>
+        <!-- Customize button color -->
+    </style>
+
+    <!-- ButtonStyleYellow -->
+    <style name="ButtonStyleWhite" parent="Widget.AppCompat.Button.Colored">
+        <item name="backgroundTint">@color/white</item>
+        <!-- Customize button color -->
+    </style>
+
+
 </resources>
