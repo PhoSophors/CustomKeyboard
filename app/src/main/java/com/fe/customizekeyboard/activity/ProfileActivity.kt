@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+
 import com.fe.customizekeyboard.databinding.ActivityProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -114,9 +114,9 @@ class ProfileActivity : AppCompatActivity() {
         if (photoUrl != null) {
             // Use Glide or Picasso to load the profile photo into an ImageView
             // Replace imageViewProfilePhoto with your actual ImageView ID
-            Glide.with(this)
-                .load(photoUrl)
-                .into(binding.imageViewProfilePhoto)
+//            Glide.with(this)
+//                .load(photoUrl)
+//                .into(binding.imageViewProfilePhoto)
         } else {
             // Handle the case where the user does not have a profile photo
             // You can set a default image or hide the ImageView

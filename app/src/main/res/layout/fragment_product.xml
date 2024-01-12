@@ -77,426 +77,431 @@
 <!--end tap button -->
 
 
-<!--            fav product -->
-            <androidx.cardview.widget.CardView
+<!--&lt;!&ndash;            fav product &ndash;&gt;-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:cardElevation="0dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="130dp"-->
+<!--                        android:src="@drawable/q1pro"-->
+<!--                        android:padding="5dp"/>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:text="Tilte Keyboard"-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="10dp"-->
+<!--                            android:text="C# (C-Sharp) is a programming language developed "-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:textStyle="italic" />-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="bottom"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:text="$299"-->
+<!--                                android:textColor="@color/product"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold" />-->
+<!--                            <View-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_weight="1"-->
+<!--                                />-->
+<!--                            <ImageView-->
+<!--                                android:layout_marginRight="5sp"-->
+<!--                                android:layout_marginBottom="5dp"-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                android:src="@drawable/outline_favorite_border_24"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+<!--            &lt;!&ndash;      end  fav product &ndash;&gt;-->
+
+
+
+<!--            &lt;!&ndash;            fav product &ndash;&gt;-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:cardElevation="0dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="130dp"-->
+<!--                        android:src="@drawable/q1pro"-->
+<!--                        android:padding="5dp"/>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:text="Tilte Keyboard"-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="10dp"-->
+<!--                            android:text="C# (C-Sharp) is a programming language developed "-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:textStyle="italic" />-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="bottom"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:text="$299"-->
+<!--                                android:textColor="@color/product"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold" />-->
+<!--                            <View-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_weight="1"-->
+<!--                                />-->
+<!--                            <ImageView-->
+<!--                                android:layout_marginRight="5sp"-->
+<!--                                android:layout_marginBottom="5dp"-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                android:src="@drawable/outline_favorite_border_24"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+<!--            &lt;!&ndash;      end  fav product &ndash;&gt;-->
+
+
+<!--            &lt;!&ndash;            fav product &ndash;&gt;-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:cardElevation="0dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="130dp"-->
+<!--                        android:src="@drawable/q1pro"-->
+<!--                        android:padding="5dp"/>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:text="Tilte Keyboard"-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="10dp"-->
+<!--                            android:text="C# (C-Sharp) is a programming language developed "-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:textStyle="italic" />-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="bottom"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:text="$299"-->
+<!--                                android:textColor="@color/product"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold" />-->
+<!--                            <View-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_weight="1"-->
+<!--                                />-->
+<!--                            <ImageView-->
+<!--                                android:layout_marginRight="5sp"-->
+<!--                                android:layout_marginBottom="5dp"-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                android:src="@drawable/outline_favorite_border_24"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+<!--            &lt;!&ndash;      end  fav product &ndash;&gt;-->
+
+
+<!--            &lt;!&ndash;            fav product &ndash;&gt;-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:cardElevation="0dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="130dp"-->
+<!--                        android:src="@drawable/q1pro"-->
+<!--                        android:padding="5dp"/>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:text="Tilte Keyboard"-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="10dp"-->
+<!--                            android:text="C# (C-Sharp) is a programming language developed "-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:textStyle="italic" />-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="bottom"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:text="$299"-->
+<!--                                android:textColor="@color/product"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold" />-->
+<!--                            <View-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_weight="1"-->
+<!--                                />-->
+<!--                            <ImageView-->
+<!--                                android:layout_marginRight="5sp"-->
+<!--                                android:layout_marginBottom="5dp"-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                android:src="@drawable/outline_favorite_border_24"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+<!--            &lt;!&ndash;      end  fav product &ndash;&gt;-->
+
+
+<!--            &lt;!&ndash;            fav product &ndash;&gt;-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:cardElevation="0dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="130dp"-->
+<!--                        android:src="@drawable/q1pro"-->
+<!--                        android:padding="5dp"/>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:text="Tilte Keyboard"-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="10dp"-->
+<!--                            android:text="C# (C-Sharp) is a programming language developed "-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:textStyle="italic" />-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="bottom"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:text="$299"-->
+<!--                                android:textColor="@color/product"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold" />-->
+<!--                            <View-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_weight="1"-->
+<!--                                />-->
+<!--                            <ImageView-->
+<!--                                android:layout_marginRight="5sp"-->
+<!--                                android:layout_marginBottom="5dp"-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                android:src="@drawable/outline_favorite_border_24"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+<!--            &lt;!&ndash;      end  fav product &ndash;&gt;-->
+
+
+
+<!--            &lt;!&ndash;            fav product &ndash;&gt;-->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:cardCornerRadius="5dp"-->
+<!--                app:cardElevation="0dp">-->
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="@color/white"-->
+<!--                    android:orientation="horizontal">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="150dp"-->
+<!--                        android:layout_height="130dp"-->
+<!--                        android:src="@drawable/q1pro"-->
+<!--                        android:padding="5dp"/>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:orientation="vertical">-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_margin="10dp"-->
+<!--                            android:text="Tilte Keyboard"-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="20sp"-->
+<!--                            android:textStyle="bold" />-->
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="10dp"-->
+<!--                            android:text="C# (C-Sharp) is a programming language developed "-->
+<!--                            android:textColor="@color/mainColor"-->
+<!--                            android:textSize="11sp"-->
+<!--                            android:textStyle="italic" />-->
+<!--                        <LinearLayout-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:gravity="bottom"-->
+<!--                            android:orientation="horizontal">-->
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_marginBottom="8dp"-->
+<!--                                android:layout_marginLeft="10dp"-->
+<!--                                android:text="$299"-->
+<!--                                android:textColor="@color/product"-->
+<!--                                android:textSize="18sp"-->
+<!--                                android:textStyle="bold" />-->
+<!--                            <View-->
+<!--                                android:layout_width="match_parent"-->
+<!--                                android:layout_height="match_parent"-->
+<!--                                android:layout_weight="1"-->
+<!--                                />-->
+<!--                            <ImageView-->
+<!--                                android:layout_marginRight="5sp"-->
+<!--                                android:layout_marginBottom="5dp"-->
+<!--                                android:layout_width="30dp"-->
+<!--                                android:layout_height="30dp"-->
+<!--                                android:src="@drawable/outline_favorite_border_24"/>-->
+<!--                        </LinearLayout>-->
+<!--                    </LinearLayout>-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
+<!--            &lt;!&ndash;      end  fav product &ndash;&gt;-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="0dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/q1pro"
-                        android:padding="5dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Tilte Keyboard"
-                            android:textColor="@color/mainColor"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="C# (C-Sharp) is a programming language developed "
-                            android:textColor="@color/mainColor"
-                            android:textSize="11sp"
-                            android:textStyle="italic" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="bottom"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="10dp"
-                                android:text="$299"
-                                android:textColor="@color/product"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                />
-                            <ImageView
-                                android:layout_marginRight="5sp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/outline_favorite_border_24"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!--      end  fav product -->
-
-
-
-            <!--            fav product -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="0dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/q1pro"
-                        android:padding="5dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Tilte Keyboard"
-                            android:textColor="@color/mainColor"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="C# (C-Sharp) is a programming language developed "
-                            android:textColor="@color/mainColor"
-                            android:textSize="11sp"
-                            android:textStyle="italic" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="bottom"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="10dp"
-                                android:text="$299"
-                                android:textColor="@color/product"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                />
-                            <ImageView
-                                android:layout_marginRight="5sp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/outline_favorite_border_24"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!--      end  fav product -->
-
-
-            <!--            fav product -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="0dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/q1pro"
-                        android:padding="5dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Tilte Keyboard"
-                            android:textColor="@color/mainColor"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="C# (C-Sharp) is a programming language developed "
-                            android:textColor="@color/mainColor"
-                            android:textSize="11sp"
-                            android:textStyle="italic" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="bottom"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="10dp"
-                                android:text="$299"
-                                android:textColor="@color/product"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                />
-                            <ImageView
-                                android:layout_marginRight="5sp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/outline_favorite_border_24"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!--      end  fav product -->
-
-
-            <!--            fav product -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="0dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/q1pro"
-                        android:padding="5dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Tilte Keyboard"
-                            android:textColor="@color/mainColor"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="C# (C-Sharp) is a programming language developed "
-                            android:textColor="@color/mainColor"
-                            android:textSize="11sp"
-                            android:textStyle="italic" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="bottom"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="10dp"
-                                android:text="$299"
-                                android:textColor="@color/product"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                />
-                            <ImageView
-                                android:layout_marginRight="5sp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/outline_favorite_border_24"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!--      end  fav product -->
-
-
-            <!--            fav product -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="0dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/q1pro"
-                        android:padding="5dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Tilte Keyboard"
-                            android:textColor="@color/mainColor"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="C# (C-Sharp) is a programming language developed "
-                            android:textColor="@color/mainColor"
-                            android:textSize="11sp"
-                            android:textStyle="italic" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="bottom"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="10dp"
-                                android:text="$299"
-                                android:textColor="@color/product"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                />
-                            <ImageView
-                                android:layout_marginRight="5sp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/outline_favorite_border_24"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!--      end  fav product -->
-
-
-
-            <!--            fav product -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="0dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/q1pro"
-                        android:padding="5dp"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:text="Tilte Keyboard"
-                            android:textColor="@color/mainColor"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="C# (C-Sharp) is a programming language developed "
-                            android:textColor="@color/mainColor"
-                            android:textSize="11sp"
-                            android:textStyle="italic" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="bottom"
-                            android:orientation="horizontal">
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="8dp"
-                                android:layout_marginLeft="10dp"
-                                android:text="$299"
-                                android:textColor="@color/product"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                />
-                            <ImageView
-                                android:layout_marginRight="5sp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/outline_favorite_border_24"/>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-            <!--      end  fav product -->
+                android:layout_height="match_parent" />
 
 
         </LinearLayout>
