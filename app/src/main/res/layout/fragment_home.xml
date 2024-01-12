@@ -162,23 +162,26 @@
             android:gravity="center"
             android:orientation="horizontal">
             <androidx.cardview.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="0dp">
+                android:layout_margin="5dp"
+                android:elevation="4dp"
+                android:id="@+id/cardProduct"
+                app:cardCornerRadius="8dp">
+
                 <!-- Linear Layout -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
                     <!-- Image View -->
+                    <!-- Card Content -->
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
                         android:scaleType="fitXY"
-                        android:src="@drawable/image1"/>
-                    <!-- Card Content -->
+                        android:src="@drawable/image1" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
