@@ -38,6 +38,7 @@ class ProductFragment : Fragment() {
         loadKeyboardfromsServer() ;
     }
 
+
     fun loadKeyboardfromsServer() {
         val httpClient = Retrofit.Builder()
             .baseUrl("https://api-keyboardcustomize.onrender.com/")
@@ -55,7 +56,7 @@ class ProductFragment : Fragment() {
                 response: Response<List<Keyboard>>
             ) {
                 if (response.isSuccessful) {
-                    showProductsList(response.body()!!)
+                    showKeyboardList(response.body()!!)
                 } else {
                     Toast.makeText(context, "Load keyboard list failed!", Toast.LENGTH_LONG).show()
                 }
@@ -69,7 +70,7 @@ class ProductFragment : Fragment() {
         })
 
     }
-    private fun showProductsList(productsList: List<Keyboard>) {
+    private fun showKeyboardList(productsList: List<Keyboard>) {
 
         // Create layout manager
 

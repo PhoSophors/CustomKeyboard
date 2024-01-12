@@ -23,14 +23,15 @@ class KeyboardListAdapter: ListAdapter<Keyboard, KeyboardListAdapter.KeyboardLis
 }){
     class KeyboardListViewHolder(val viewBinding :ViewHolderKeyboardListBinding):ViewHolder(viewBinding.root){
 
-
         // bind data from view holder
         fun bind(item:Keyboard){
             Picasso.get().load(item.image_url1).into(viewBinding.imageView1);
             viewBinding.txtProductName.text = item.keyboard_name;
             viewBinding.txtPrice.text = item.price.toString() ;
             viewBinding.txtRate.text = item.rate.toString() ;
+
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KeyboardListViewHolder {
@@ -43,6 +44,7 @@ class KeyboardListAdapter: ListAdapter<Keyboard, KeyboardListAdapter.KeyboardLis
        val item = getItem(position);
         holder.bind(item)
     }
+
 
 }
 

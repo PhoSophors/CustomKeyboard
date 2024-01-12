@@ -26,16 +26,11 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.inflate(inflater ,container ,false) ;
         return binding.root
 
+    }
 
-        binding.cardProduct.setOnClickListener {
-            // Open FragmentB when the button is clicked
-
-        }
-
-
-
-        return view
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Call api
     }
 
 
