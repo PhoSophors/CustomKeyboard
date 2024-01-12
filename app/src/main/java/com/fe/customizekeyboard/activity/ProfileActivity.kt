@@ -22,6 +22,7 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
 
+        // Get an instance of FirebaseAuth
         firebaseAuth = FirebaseAuth.getInstance()
 
         binding.profileBackBtn.setOnClickListener {
@@ -39,13 +40,30 @@ class ProfileActivity : AppCompatActivity() {
             binding.showUserEmail.text = userEmail
 
             // Check if user has a display name (full name)
-            if (user.displayName != null) {
+            val displayName = user.displayName
+            if (displayName != null) {
                 // If available, display full name
-                binding.showFullName.text = user.displayName
+                binding.showFullName.text = displayName
             } else {
-                // If not available, fetch full name from Firebase and update display name
-                fetchAndDisplayFullName(user)
+                // If not available, fetch full name from intent
+                val fullNameFromIntent = intent.getStringExtra("USER_NAME")
+                if (fullNameFromIntent != null) {
+                    binding.showFullName.text = fullNameFromIntent
+
+                    // Update the user's display name in Firebase
+                    val profileUpdates = UserProfileChangeRequest.Builder()
+                        .setDisplayName(fullNameFromIntent)
+                        .build()
+
+                    user.updateProfile(profileUpdates)
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                // Successfully updated the display name
+                            }
+                        }
+                }
             }
+
             // Load the profile photo
             loadProfilePhoto(user)
         } else {
@@ -58,18 +76,29 @@ class ProfileActivity : AppCompatActivity() {
     }
 
 
+    // sign out function (when user click sign out button it alert Dialog Builder to confirm again)
     private fun showSignOutConfirmationDialog() {
+        // Create an AlertDialog.Builder instance
         val alertDialogBuilder = AlertDialog.Builder(this)
+        // Set the title of the dialog
         alertDialogBuilder.setTitle("Sign Out")
+        // Set the message displayed in the dialog
         alertDialogBuilder.setMessage("Are you sure you want to sign out?")
+        // Set the positive button with a click listener
         alertDialogBuilder.setPositiveButton("Sign Out") { _, _ ->
+            // Execute the signOut function when the "Sign Out" button is clicked
             signOut()
         }
+
+        // Set the negative button with a click listener
         alertDialogBuilder.setNegativeButton("Cancel") { dialog: DialogInterface, _: Int ->
+            // Dismiss the dialog when the "Cancel" button is clicked
             dialog.dismiss()
         }
 
+        // Create an AlertDialog based on the configured AlertDialog.Builder
         val alertDialog = alertDialogBuilder.create()
+        // Show the created dialog
         alertDialog.show()
     }
 
@@ -80,31 +109,9 @@ class ProfileActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun fetchAndDisplayFullName(user: FirebaseUser) {
-        // Here you can fetch the full name from Firebase and update the user's display name
-        // For demonstration purposes, let's assume you have a field named "fullName" in your user database
-
-        // Example: Fetch full name from Firebase and update the display name
-        // Replace this with your actual implementation
-        val fullNameFromFirebase = "So Phors" // Replace this with your Firebase query
-
-
-        // Update the user's display name in Firebase
-        val profileUpdates = UserProfileChangeRequest.Builder()
-            .setDisplayName(fullNameFromFirebase)
-            .build()
-
-        user.updateProfile(profileUpdates)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    // Successfully updated the display name, now update the TextViews
-                    binding.showFullName.text = fullNameFromFirebase
-                }
-            }
-    }
 
     /**
-     * private fun loadProfilePhoto(user: FirebaseUser) {
+     * call the loadProfilePhoto function in onCreate:
      */
     private fun loadProfilePhoto(user: FirebaseUser) {
         // Retrieve the user's photo URL
@@ -122,8 +129,4 @@ class ProfileActivity : AppCompatActivity() {
             // You can set a default image or hide the ImageView
         }
     }
-    /**
-     * Call the loadProfilePhoto function in onCreate:
-     */
-
 }
