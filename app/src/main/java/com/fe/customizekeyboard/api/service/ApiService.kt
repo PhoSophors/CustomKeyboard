@@ -12,7 +12,6 @@ interface ApiService {
     @GET("keyboards")
     fun loadData(): Call<List<Keyboard>>
 
-
     //get keyboard by id
     @GET("keyboards/{keyboard_id}")
     suspend fun getProductDetails(@Path("productId") keyboard_id: Int): Keyboard
