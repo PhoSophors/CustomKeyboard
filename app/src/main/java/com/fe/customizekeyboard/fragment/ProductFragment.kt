@@ -31,6 +31,7 @@ class ProductFragment : Fragment() {
         binding = FragmentProductBinding.inflate(inflater , container , false)
         return binding.root ;
 
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,12 +84,6 @@ class ProductFragment : Fragment() {
         adapter.submitList(productsList)
         binding.recyclerView.setAdapter(adapter)
     }
-
-
-
-
-
-
 
 }
 

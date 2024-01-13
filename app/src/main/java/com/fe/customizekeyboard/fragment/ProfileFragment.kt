@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+// import androidx.navigation.fragment.findNavController
 import com.fe.customizekeyboard.activity.RegisterActivity
 import com.fe.customizekeyboard.databinding.FragmentProfileBinding
 
@@ -24,7 +24,7 @@ class ProfileFragment : Fragment() {
 
         binding.profileBackBtn.setOnClickListener {
             // Navigate back to the previous destination
-            findNavController().popBackStack()
+//            findNavController().popBackStack()
         }
 
         binding.gotoLogin.setOnClickListener {
