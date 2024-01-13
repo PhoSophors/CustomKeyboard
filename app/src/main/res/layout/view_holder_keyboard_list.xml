@@ -1,12 +1,12 @@
 
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_margin="5dp"
-android:layout_gravity="center"
-android:orientation="horizontal"
-android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="5dp"
+    android:layout_gravity="center"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content">
 
 
     <androidx.cardview.widget.CardView
@@ -60,13 +60,13 @@ android:layout_height="wrap_content">
                     android:layout_height="0dp"
                     android:layout_weight="1"/>
 
-<!--                <ImageView-->
+                <!--                <ImageView-->
 
-<!--                    android:layout_width="20dp"-->
-<!--                    android:layout_height="20dp"-->
-<!--                    android:layout_gravity="end"-->
+                <!--                    android:layout_width="20dp"-->
+                <!--                    android:layout_height="20dp"-->
+                <!--                    android:layout_gravity="end"-->
 
-<!--                    android:src="@drawable/ic_product" />-->
+                <!--                    android:src="@drawable/ic_product" />-->
 
                 <TextView
 

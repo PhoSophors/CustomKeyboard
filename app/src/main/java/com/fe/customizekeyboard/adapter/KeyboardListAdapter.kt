@@ -13,11 +13,11 @@ import java.util.Objects
 class KeyboardListAdapter: ListAdapter<Keyboard, KeyboardListAdapter.KeyboardListViewHolder> (object :DiffUtil.ItemCallback<Keyboard>(){
 
     override fun areItemsTheSame(oldItem: Keyboard, newItem: Keyboard): Boolean {
-       return oldItem == newItem  ;
+        return oldItem == newItem  ;
     }
 
     override fun areContentsTheSame(oldItem: Keyboard, newItem: Keyboard): Boolean {
-            return oldItem == newItem ;
+        return oldItem == newItem ;
     }
 
 }){
@@ -41,7 +41,7 @@ class KeyboardListAdapter: ListAdapter<Keyboard, KeyboardListAdapter.KeyboardLis
     }
 
     override fun onBindViewHolder(holder: KeyboardListViewHolder, position: Int) {
-       val item = getItem(position);
+        val item = getItem(position);
         holder.bind(item)
     }
 

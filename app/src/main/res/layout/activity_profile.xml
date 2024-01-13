@@ -128,7 +128,7 @@
                         android:layout_height="1dp"
                         android:background="@color/gray" />
                     <TextView
-                        android:id="@+id/changePin"
+                        android:id="@+id/forgotPasswordText"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@drawable/square_round"

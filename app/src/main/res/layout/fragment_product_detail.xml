@@ -1,56 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="Scrolling vertical"
-        >
+        android:contentDescription="Scrolling vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#9EAAAE"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:orientation="horizontal"
-
-                android:layout_margin="15dp"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/baseline_arrow_back_24"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Details"
-                    android:textColor="#F5B041"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="wrap_content"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    />
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_card"
-                    />
-                </LinearLayout>
+            android:background="#9EAAAE">
 
             <HorizontalScrollView
                 android:id="@+id/horizontalScrollView"
@@ -59,84 +23,11 @@
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginEnd="1dp"
-                android:contentDescription="scroll data "
+                android:contentDescription="scroll data"
                 android:layout_marginBottom="1dp"
                 android:foregroundGravity="center_vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_margin="10dp"
-                    android:layout_height="wrap_content">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="8dp">
 
-                        <!-- Linear Layout -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
-
-                            <!-- Image View -->
-                            <ImageView
-
-                                android:layout_width="350dp"
-                                android:layout_height="250dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/image2" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="8dp">
-
-                        <!-- Linear Layout -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
-
-                            <!-- Image View -->
-                            <ImageView
-
-                                android:layout_width="350dp"
-                                android:layout_height="250dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/image2"/>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="8dp">
-
-                        <!-- Linear Layout -->
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            >
-                            <!-- Image View -->
-                            <ImageView
-                                android:layout_width="350dp"
-                                android:layout_height="250dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/image2"/>
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                </LinearLayout>
+                <!-- Add your image views or other content here -->
 
             </HorizontalScrollView>
 
@@ -144,69 +35,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="431dp"
                 android:background="@drawable/blue_light_banner"
-                android:orientation="vertical"
-                >
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_margin="15dp"
-                   android:orientation="vertical">
-
-                <TextView
-                    android:layout_marginTop="40dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Product Name"
-                    android:textColor="#ffffff"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/keyboard_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="$260"
-                        android:textColor="#F5B041"
-                        android:textSize="20sp"
+                        android:layout_marginTop="10dp"
+                        android:text=""
+                        android:textSize="25sp"
                         android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_star" />
 
                     <TextView
+                        android:id="@+id/description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Reviwers"
-                        android:textColor="#F5B041"
+                        android:layout_marginTop="10dp"
+                        android:text=""
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="italic" />
 
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text=""
+                        android:textSize="20sp"
+                        android:textStyle="italic" />
+
+                    <TextView
+                        android:id="@+id/rate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text=""
+                        android:textSize="20sp"
+                        android:textStyle="italic" />
 
                 </LinearLayout>
-
-                   <TextView
-                       android:id="@+id/description"
-                       android:layout_width="match_parent"
-                       android:layout_height="match_parent"
-                       android:layout_marginTop="10dp"
-                       android:text="Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"
-                       android:textSize="20sp"
-                       android:textStyle="italic" />
-               </LinearLayout>
-             </LinearLayout>
             </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

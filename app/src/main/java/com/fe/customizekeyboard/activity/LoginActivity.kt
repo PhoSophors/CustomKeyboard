@@ -47,11 +47,11 @@ class LoginActivity:AppCompatActivity (), View.OnClickListener, View.OnFocusChan
             startActivity(intent)
             finish()
         }
-//        binding.forgotPasswordText.setOnClickListener {
-//            val intent = Intent(this, ResetPasswordActivity::class.java)
-//            startActivity(intent)
-//            finish()  // Finish the current LoginActivity
-//        }
+        binding.forgotPasswordText.setOnClickListener {
+            val intent = Intent(this, ResetPasswordActivity::class.java)
+            startActivity(intent)
+            finish()  // Finish the current LoginActivity
+        }
         binding.loingBtn.setOnClickListener {
             val emailEt = binding.emailEt.text.toString()
             val passwordEt = binding.passwordEt.text.toString()
